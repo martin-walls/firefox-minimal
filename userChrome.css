@@ -13,7 +13,8 @@
   --mff-tab-font-size: 10pt;
   --mff-tab-font-weight: 400;
   --mff-tab-height: 30px;
-  --mff-tab-border-radius: 0px;
+  --mff-tab-border-radius-top: 4px;
+  --mff-tab-border-radius-bottom: 0px;
   --mff-tab-pinned-bg: #70c1b3;
   --mff-tab-selected-bg: #535353;
   --mff-tab-soundplaying-bg: #9c89b8;
@@ -29,6 +30,8 @@
   --mff-urlbar-results-url-color: #98c1d9;
   /*   --mff-tab-selected-bg: linear-gradient(90deg, rgba(232,74,95,1) 0%, rgba(255,132,124,1) 50%, rgba(254,206,168,1) 100%); */
   /*   --mff-urlbar-font-weight: 600; */
+  /* --mff-tab-soundplaying-bg-selected: linear-gradient(180deg, var(--mff-tab-soundplaying-bg) 0%, var(--mff-tab-selected-bg) 30%);
+  --mff-tab-soundplaying-bg-unselected: linear-gradient(180deg, var(--mff-tab-soundplaying-bg) 0%, transparent 30%); */
 
   /* Overriden Firefox variables*/
   --autocomplete-popup-background: var(--mff-bg) !important;
@@ -63,6 +66,7 @@
   -moz-box-ordinal-group: 3 !important;
 } */
 
+/* background colour of tab bar */
 #TabsToolbar {
   background: var(--mff-tabbar-bg) !important;
 }
@@ -76,10 +80,14 @@
   border-left: none !important;
 }
 
+/*  disables flash when a tab loads */
+.tabbrowser-tab .tab-loading-burst {
+  display: none !important;
+}
+
 .tab-background {
   border: none !important;
-  border-radius: var(--mff-tab-border-radius) !important;
-  border-radius: 4px 4px 0 0 !important;
+  border-radius: var(--mff-tab-border-radius-top) var(--mff-tab-border-radius-top) var(--mff-tab-border-radius-bottom) var(--mff-tab-border-radius-bottom) !important;
 }
 
 .tabbrowser-arrowscrollbox {
@@ -130,7 +138,7 @@ hbox.tab-content[pinned=true] .tab-text {
 }
 
 .tabbrowser-tab {
-  border-radius: var(--mff-tab-border-radius) !important;
+  border-radius: var(--mff-tab-border-radius-top) var(--mff-tab-border-radius-top) var(--mff-tab-border-radius-bottom) var(--mff-tab-border-radius-bottom) !important;
   border-width: 0;
   border-color: transparent !important;
   height: var(--mff-tab-height) !important;
@@ -141,9 +149,18 @@ hbox.tab-content[pinned=true] .tab-text {
   min-height: var(--mff-tab-height) !important;
 }
 
+/* set colour of tab playing sound */
 .tabbrowser-tab[soundplaying="true"] {
   background-color: var(--mff-tab-soundplaying-bg) !important;
 }
+
+/* .tabbrowser-tab[soundplaying="true"] .tab-background {
+  background: var(--mff-tab-soundplaying-bg) !important;
+} */
+
+/* .tabbrowser-tab[soundplaying="true"] .tab-background[selected="true"] {
+  background: var(--mff-tab-soundplaying-bg-selected) !important;
+} */
 
 /* new tab button */
 #tabs-newtab-button {
@@ -180,6 +197,35 @@ hbox.tab-content[pinned=true] .tab-text {
 #nav-bar {
   border-top: none !important;
   box-shadow: none !important;
+}
+
+.tab-throbber[busy] {
+  list-style-image: url("ic_dot.svg") !important;
+}
+
+.tab-throbber[progress] {
+  list-style-image: url("ic_dot.svg") !important;
+}
+
+
+
+/* .urlbar-icon, */
+/* .urlbar-icon-wrapper, */
+/* #tabbrowser-tabs toolbarbutton, */
+/* toolbar toolbarbutton > .toolbarbutton-icon, */
+
+/* back and forward buttons */
+#back-button > .toolbarbutton-icon, #forward-button > .toolbarbutton-icon,
+/* toolbar toolbarbutton > .toolbarbutton-badge-stack, */
+/* .titlebar-button, */
+/* icons at left of url bar */
+#identity-box,
+#tracking-protection-icon-container
+/* .findbar-textbox~toolbarbutton, */
+/* toolbarbutton.scrollbutton-up, */
+/* toolbarbutton.scrollbutton-down  */
+{
+	background-color: transparent !important;
 }
 
 /*
@@ -267,8 +313,16 @@ toolbar {
   margin-left: 5px !important;
 }
 
+#back-button:hover:not([disabled]) {
+  list-style-image: url("ic_back_lg.svg") !important;
+}
+
 #forward-button {
   list-style-image: url("ic_forward.svg") !important;
+}
+
+#forward-button:hover:not([disabled]) {
+  list-style-image: url("ic_forward_lg.svg") !important;
 }
 
 #urlbar-background {
