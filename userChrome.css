@@ -199,14 +199,6 @@ hbox.tab-content[pinned=true] .tab-text {
   box-shadow: none !important;
 }
 
-.tab-throbber[busy] {
-  list-style-image: url("ic_dot.svg") !important;
-}
-
-.tab-throbber[progress] {
-  list-style-image: url("ic_dot.svg") !important;
-}
-
 
 
 /* .urlbar-icon, */
