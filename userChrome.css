@@ -154,7 +154,7 @@ hbox.tab-content[pinned=true] .tab-text {
 }
 
 #tabs-newtab-button:hover {
-  list-style-image: url("ic_dot_lg.svg") !important;
+  list-style-image: url("ic_add_circle.svg") !important;
 }
 
 #tabs-newtab-button:hover > .toolbarbutton-icon {
