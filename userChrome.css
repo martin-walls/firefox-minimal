@@ -28,6 +28,8 @@
   --mff-urlbar-results-font-size: 11pt;
   --mff-urlbar-results-font-weight: 400;
   --mff-urlbar-results-url-color: #98c1d9;
+
+  --mff-urlbar-border-radius: 2px;
   /*   --mff-tab-selected-bg: linear-gradient(90deg, rgba(232,74,95,1) 0%, rgba(255,132,124,1) 50%, rgba(254,206,168,1) 100%); */
   /*   --mff-urlbar-font-weight: 600; */
   /* --mff-tab-soundplaying-bg-selected: linear-gradient(180deg, var(--mff-tab-soundplaying-bg) 0%, var(--mff-tab-selected-bg) 30%);
@@ -41,7 +43,7 @@
   --panel-disabled-color: #f9f9fa80;
   --toolbar-bgcolor: var(--mff-bg) !important;
   --urlbar-separator-color: transparent !important;
-  --toolbarbutton-border-radius: 0px !important;
+  --toolbarbutton-border-radius: 2px !important;
 }
 
 /*
@@ -220,19 +222,6 @@ hbox.tab-content[pinned=true] .tab-text {
 	background-color: transparent !important;
 }
 
-.urlbar-icon,
-.urlbar-icon-wrapper,
-#tabbrowser-tabs toolbarbutton,
-toolbar toolbarbutton > .toolbarbutton-icon,
-
-toolbar toolbarbutton > .toolbarbutton-badge-stack,
-.titlebar-button,
-.findbar-textbox~toolbarbutton,
-toolbarbutton.scrollbutton-up,
-toolbarbutton.scrollbutton-down 
-{
-	border-radius: 2px !important;
-}
 
 /*
   _____ ___   ___  _    ___   _   ___
@@ -341,7 +330,7 @@ toolbar {
   background-color: var(--mff-bg) !important;
   border: none !important;
   /* slightly round the corners of the url bar */
-  border-radius: 2px !important;
+  border-radius: var(--mff-urlbar-border-radius) !important;
 }
 
 
