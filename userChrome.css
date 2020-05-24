@@ -220,6 +220,20 @@ hbox.tab-content[pinned=true] .tab-text {
 	background-color: transparent !important;
 }
 
+.urlbar-icon,
+.urlbar-icon-wrapper,
+#tabbrowser-tabs toolbarbutton,
+toolbar toolbarbutton > .toolbarbutton-icon,
+
+toolbar toolbarbutton > .toolbarbutton-badge-stack,
+.titlebar-button,
+.findbar-textbox~toolbarbutton,
+toolbarbutton.scrollbutton-up,
+toolbarbutton.scrollbutton-down 
+{
+	border-radius: 2px !important;
+}
+
 /*
   _____ ___   ___  _    ___   _   ___
 |_   _/ _ \ / _ \| |  | _ ) /_\ | _ \
