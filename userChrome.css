@@ -222,6 +222,18 @@ hbox.tab-content[pinned=true] .tab-text {
 	background-color: transparent !important;
 }
 
+/* slightly round corners of icons at right of url bar */
+.urlbar-icon,
+.urlbar-icon-wrapper
+{
+  border-radius: var(--toolbarbutton-border-radius) !important;
+}
+
+/* increase space between last url bar icon (bookmark star) and right edge */
+#urlbar {
+  padding-right: 2px !important;
+}
+
 
 /*
   _____ ___   ___  _    ___   _   ___
