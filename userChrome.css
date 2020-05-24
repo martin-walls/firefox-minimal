@@ -326,6 +326,8 @@ toolbar {
 #urlbar-background {
   background-color: var(--mff-bg) !important;
   border: none !important;
+  /* slightly round the corners of the url bar */
+  border-radius: 2px !important;
 }
 
 
