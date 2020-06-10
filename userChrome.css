@@ -239,6 +239,7 @@ hbox.tab-content[pinned="true"] .tab-text {
   margin-top: 0px !important;
 /*   max-height: var(--mw-tab-height) !important;
   min-height: var(--mw-tab-height) !important; */
+
 }
 
 /* set colour of tab playing sound */
@@ -254,8 +255,10 @@ hbox.tab-content[pinned="true"] .tab-text {
 /* new tab button */
 #tabs-newtab-button {
   list-style-image: url("ic_dot.svg") !important;
-  opacity: 0.7;
-  -moz-box-ordinal-group: 0 !important;
+  opacity: 0.5;
+  /* move icon down a tiny bit to match window buttons vertically */
+  margin-top: 0.5px !important;
+/*   -moz-box-ordinal-group: 0 !important; */
 }
 
 #tabs-newtab-button:hover {
@@ -279,8 +282,8 @@ hbox.tab-content[pinned="true"] .tab-text {
 
 /* space to right of tabs */
 .titlebar-spacer[type="post-tabs"] {
-  width: 10px !important;
-  max-width: 10px !important;
+  width: 40px !important;
+  max-width: 40px !important;
 }
 
 #nav-bar {
@@ -376,7 +379,7 @@ filter: drop-shadow(0 0 0.75rem crimson);
   font-weight: var(--mw-urlbar-font-weight) !important;
   color: var(--mw-urlbar-text-color) !important;
 /*   text-align: center !important; */
-  padding-left: 12px !important;
+  padding-left: 10px !important;
 }
 
 #urlbar-results {
@@ -551,18 +554,58 @@ image#sidebar-icon {
   display: none;
 } 
 
-/*
-    _   ___ ___  _____      _____  _   _  _ ___ _
-   /_\ | _ \ _ \/ _ \ \    / / _ \/_\ | \| | __| |
-  / _ \|   /   / (_) \ \/\/ /|  _/ _ \| .` | _|| |__
- /_/ \_\_|_\_|_\\___/ \_/\_/ |_|/_/ \_\_|\_|___|____|
- */
-
-.panel-arrowcontent {
+/* .panel-arrowcontent {
   padding: 0px !important;
   margin: 0px !important;
 }
 
 toolbarseparator {
   display: none;
+} */
+
+/* auto hide url bar */
+/* toolbox {
+  z-index: 10;
+  margin-top: 0 !important;
+  margin-bottom: -30px !important;
+  height: 0 !important;
+  pointer-events: none;
 }
+
+vbox {
+  pointer-events: all;
+}
+
+#nav-bar {
+  opacity: 0;
+  transform-origin: 0 0;
+  pointer-events: none;
+  transition: transform, ease-in-out 0.2s, opacity 0.2s ease-in-out !important;
+}
+
+vbox:hover ~ #nav-bar, toolbox:focus-within > #nav-bar, #nav-bar:hover, #mainPopupSet:hover ~ box #nav-bar, #mainPopupSet:focus-within ~ box #nav-bar {
+  opacity: 1;
+  transform: none;
+  pointer-events: all;
+} */
+
+/* move page content down so it doesnt get covered when unhiding url bar */
+/* toolbox:hover {
+  margin-bottom: 0 !important;
+} */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
