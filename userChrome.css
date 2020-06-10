@@ -1,10 +1,60 @@
- /* chrome://browser/content/browser.xhtml */
- 
- :root {
-   /* Minimal Functional Fox variables*/
-  --mff-bg: #363636;
-  --mff-tabbar-bg: #252525;
+/* chrome://browser/content/browser.xhtml */
+
+:root {
+  /* background color of url bar */
+  --mw-urlbar-bg: #363636;
+  
+  /* background of toolbar behind url bar */
+  --mw-toolbar-bg: #535353;
+  
+  /* fill color of icons right of url bar */
+  --mw-toolbar-right-icon-fill: #d0d0d0;
+  
+  /* fill color of urlbar right icons */
+  --mw-urlbar-icon-color: #d0d0d0;
+  
+  /* background colour behind tabs and of unselected tabs */
+  --mw-tabbar-bg: #363636;
+
+  /* colour of selected tab: same as toolbar */
+  --mw-tab-selected-bg: var(--mw-toolbar-bg);
+  
+  /* colour of background tab playing sound */
+  --mw-tab-soundplaying-bg: #404040;
+  
+  /* tab border radius */
+  --mw-tab-border-radius-top: 4px;
+  --mw-tab-border-radius-bottom: 0;
+  
+  /* tab font */
+  --mw-tab-title-font-family: "Ubuntu mono", monospace;
+  --mw-tab-title-font-weight: 500;
+  --mw-tab-selected-title-font-weight: 800;
+  --mw-tab-title-font-size: 12px;
+  --mw-tab-title-text-color: #fefefe;
+  
+  /* border radius of url bar */
+  --mw-urlbar-border-radius: 2px;
+  
+  /* urlbar text style */
+  --mw-urlbar-text-color: #98c1c1;
+  --mw-urlbar-focused-text-color: #e0fbfc;
+  --mw-urlbar-font-family: "ubuntu mono", monospace;
+  --mw-urlbar-font-size: 14px;
+  --mw-urlbar-font-weight: 500;
+  
+  --mw-urlbar-results-text-color: #e0fbfc;
+  --mw-urlbar-results-font-family: "ubuntu mono", monospace;
+  --mw-urlbar-results-font-size: 14px;
+  --mw-urlbar-results-font-weight: 500;
+  
+  --mw-urlbar-results-url-color: #98c1d9;
+  --mw-urlbar-results-switch-to-tab-row-text-color: orange;
+
+  /* Minimal Functional Fox variables*/
+/*   --mff-bg: var(--mw-bg);
   --mff-icon-color: #d0d0d0;
+  --mff-tabbar-bg: #252525;
   --mff-nav-toolbar-padding: 8px;
   --mff-sidebar-bg: var(--mff-bg);
   --mff-sidebar-color: #e0fbfc;
@@ -27,22 +77,28 @@
   --mff-urlbar-results-font-family: "Fira Sans", sans;
   --mff-urlbar-results-font-size: 11pt;
   --mff-urlbar-results-font-weight: 400;
-  --mff-urlbar-results-url-color: #98c1d9;
+  --mff-urlbar-results-url-color: #98c1d9; */
 
-  --mff-urlbar-border-radius: 2px;
+/*   --mff-urlbar-border-radius: 2px; */
   /*   --mff-tab-selected-bg: linear-gradient(90deg, rgba(232,74,95,1) 0%, rgba(255,132,124,1) 50%, rgba(254,206,168,1) 100%); */
   /*   --mff-urlbar-font-weight: 600; */
   /* --mff-tab-soundplaying-bg-selected: linear-gradient(180deg, var(--mff-tab-soundplaying-bg) 0%, var(--mff-tab-selected-bg) 30%);
   --mff-tab-soundplaying-bg-unselected: linear-gradient(180deg, var(--mff-tab-soundplaying-bg) 0%, transparent 30%); */
 
   /* Overriden Firefox variables*/
-  --autocomplete-popup-background: var(--mff-bg) !important;
-  --default-arrowpanel-background: var(--mff-bg) !important;
-  --default-arrowpanel-color: #fefefa !important;
-  --lwt-toolbarbutton-icon-fill: var(--mff-icon-color) !important;
-  --panel-disabled-color: #f9f9fa80;
-  --toolbar-bgcolor: var(--mff-bg) !important;
+  /* bg of autocompletes?  */
+  --autocomplete-popup-background: var(--mw-urlbar-bg) !important;
+  /* bg of dropdowns from toolbar */
+  --default-arrowpanel-background: var(--mw-urlbar-bg) !important;
+  
+/*   --default-arrowpanel-color: #fefefa !important; */
+  --lwt-toolbarbutton-icon-fill: var(--mw-toolbar-right-icon-fill) !important;
+/*   --panel-disabled-color: #f9f9fa80; */
+  
+  /* hides separator line between urlbar icons */
   --urlbar-separator-color: transparent !important;
+  
+  /* border radious of toolbar button backgrounds (that show on hover) */
   --toolbarbutton-border-radius: 2px !important;
 }
 
@@ -55,27 +111,27 @@
 */
 
 .tab-background[selected="true"] {
-  background: var(--mff-tab-selected-bg) !important;
+  background: var(--mw-tab-selected-bg) !important;
 }
 
-.tab-background:not[visuallyselected] {
+/* .tab-background:not[visuallyselected] {
   background: var(--mff-tab-selected-bg) !important;
   opacity: 0.5 !important;
-}
+} */
 
 /* This positions the tabs under the navigator container */
 /* #titlebar {
   -moz-box-ordinal-group: 3 !important;
 } */
 
-/* background colour of tab bar */
+/* background colour of tab bar behind tabs (also colour of unselected tabs) */
 #TabsToolbar {
-  background: var(--mff-tabbar-bg) !important;
+  background: var(--mw-tabbar-bg) !important;
 }
 
-#navigator-toolbox {
+/* #navigator-toolbox {
   --tabs-border-color: transparent !important;
-}
+} */
 
 .tabbrowser-tab::after,
 .tabbrowser-tab::before {
@@ -88,8 +144,11 @@
 }
 
 .tab-background {
+  /* no tab border */
   border: none !important;
-  border-radius: var(--mff-tab-border-radius-top) var(--mff-tab-border-radius-top) var(--mff-tab-border-radius-bottom) var(--mff-tab-border-radius-bottom) !important;
+  /* set corner radius of tabs */
+  border-radius: var(--mw-tab-border-radius-top) var(--mw-tab-border-radius-top)
+    var(--mw-tab-border-radius-bottom) var(--mw-tab-border-radius-bottom) !important;
 }
 
 .tabbrowser-arrowscrollbox {
@@ -97,15 +156,22 @@
   margin-inline-end: 0px !important;
 }
 
+/* hide tab close btn */
 .tab-close-button {
- display: none !important;
+  display: none !important;
 }
 
+/* tab title text style */
 .tab-text {
-  font-family: var(--mff-tab-font-family);
-  font-weight: var(--mff-tab-font-weight);
-  font-size: var(--mff-tab-font-size) !important;
-  color: var(--mff-tab-color);
+  font-family: var(--mw-tab-title-font-family);
+  font-weight: var(--mw-tab-title-font-weight);
+  font-size: var(--mw-tab-title-font-size) !important;
+  color: var(--mw-tab-title-text-color);
+}
+
+/* bolder text on selected tab */
+.tab-text[selected="true"] {
+  font-weight: var(--mw-tab-selected-title-font-weight);
 }
 
 /* Hide the favicon for tabs */
@@ -114,18 +180,21 @@ hbox.tab-content .tab-icon-image {
 }
 
 /* Show the favicon for tabs that are pinned */
-hbox.tab-content[pinned=true] .tab-icon-image {
+hbox.tab-content[pinned="true"] .tab-icon-image {
   display: initial !important;
 }
 
-hbox.tab-content[pinned=true] .tab-text {
+/* hide tab title text for pinned tabs */
+hbox.tab-content[pinned="true"] .tab-text {
   display: none !important;
 }
 
 #tabbrowser-tabs {
+  /* color of tab loading icon */
   --tab-loading-fill: #033433 !important;
 }
 
+/* centre tab title text */
 .tab-label-container:not([textoverflow]) {
   display: flex;
   overflow: hidden;
@@ -135,25 +204,27 @@ hbox.tab-content[pinned=true] .tab-text {
   min-width: 50% !important;
 }
 
+/* disable line at top of tabs */
 .tab-line {
   display: none !important;
 }
 
 .tabbrowser-tab {
-  border-radius: var(--mff-tab-border-radius-top) var(--mff-tab-border-radius-top) var(--mff-tab-border-radius-bottom) var(--mff-tab-border-radius-bottom) !important;
+  border-radius: var(--mw-tab-border-radius-top) var(--mw-tab-border-radius-top)
+    var(--mw-tab-border-radius-bottom) var(--mw-tab-border-radius-bottom) !important;
   border-width: 0;
   border-color: transparent !important;
-  height: var(--mff-tab-height) !important;
+/*   height: var(--mw-tab-height) !important; */
   margin-inline-end: 0px !important;
   margin-bottom: 0px !important;
   margin-top: 0px !important;
-  max-height: var(--mff-tab-height) !important;
-  min-height: var(--mff-tab-height) !important;
+/*   max-height: var(--mw-tab-height) !important;
+  min-height: var(--mw-tab-height) !important; */
 }
 
 /* set colour of tab playing sound */
 .tabbrowser-tab[soundplaying="true"] {
-  background-color: var(--mff-tab-soundplaying-bg) !important;
+  background-color: var(--mw-tab-soundplaying-bg) !important;
 }
 
 /* .tabbrowser-tab[soundplaying="true"] .tab-background {
@@ -168,14 +239,13 @@ hbox.tab-content[pinned=true] .tab-text {
 #tabs-newtab-button {
   list-style-image: url("ic_dot.svg") !important;
   opacity: 0.7;
-  /* display: none; */
-  /* -moz-box-ordinal-group: 0 !important; */
 }
 
 #tabs-newtab-button:hover {
   list-style-image: url("ic_add_circle.svg") !important;
 }
 
+/* hide new tab button background on hover */
 #tabs-newtab-button:hover > .toolbarbutton-icon {
   background-color: transparent !important;
 }
@@ -184,7 +254,7 @@ hbox.tab-content[pinned=true] .tab-text {
   display: none !important;
 }
 
-/* space to left of tabs */
+/* hide space to left of tabs */
 .titlebar-spacer[type="pre-tabs"] {
   width: 0px !important;
   max-width: 0px !important;
@@ -201,31 +271,17 @@ hbox.tab-content[pinned=true] .tab-text {
   box-shadow: none !important;
 }
 
-
-
-/* .urlbar-icon, */
-/* .urlbar-icon-wrapper, */
-/* #tabbrowser-tabs toolbarbutton, */
-/* toolbar toolbarbutton > .toolbarbutton-icon, */
-
 /* back and forward buttons */
 #back-button > .toolbarbutton-icon, #forward-button > .toolbarbutton-icon,
-/* toolbar toolbarbutton > .toolbarbutton-badge-stack, */
-/* .titlebar-button, */
 /* icons at left of url bar */
 #identity-box,
-#tracking-protection-icon-container
-/* .findbar-textbox~toolbarbutton, */
-/* toolbarbutton.scrollbutton-up, */
-/* toolbarbutton.scrollbutton-down  */
-{
-	background-color: transparent !important;
+#tracking-protection-icon-container {
+  background-color: transparent !important;
 }
 
 /* slightly round corners of icons at right of url bar */
 .urlbar-icon,
-.urlbar-icon-wrapper
-{
+.urlbar-icon-wrapper {
   border-radius: var(--toolbarbutton-border-radius) !important;
 }
 
@@ -234,7 +290,6 @@ hbox.tab-content[pinned=true] .tab-text {
   padding-right: 2px !important;
 }
 
-
 /*
   _____ ___   ___  _    ___   _   ___
 |_   _/ _ \ / _ \| |  | _ ) /_\ | _ \
@@ -242,79 +297,75 @@ hbox.tab-content[pinned=true] .tab-text {
   |_| \___/ \___/|____|___/_/  \_\_|_\
 */
 
-/* .urlbar-icon > image {
-  fill: var(--mff-icon-color) !important;
-  color: var(--mff-icon-color) !important;
+.urlbar-icon > image {
+/*   fill: var(--mff-icon-color) !important; */
+/*   color: var(--mff-icon-color) !important; */
+/*   color: #f00 !important;
+  fill: #f00 !important; */
 }
 
 .toolbarbutton-text {
-  color: var(--mff-icon-color)  !important;
+/*   color: var(--mff-icon-color)  !important; */
 }
 .urlbar-icon {
-  color: var(--mff-icon-color)  !important;
+/*   color: var(--mff-icon-color)  !important; */
+/*   color: #f00 !important; */
+}
 
+/* .toolbarbutton-icon {
+filter: drop-shadow(0 0 0.75rem crimson);
 } */
 
-/* .toolbarbutton-icon { */
-/* filter: drop-shadow(0 0 0.75rem crimson); */
-/* } */
 
-/* #urlbar-results {
-  font-family: var(--mff-urlbar-results-font-family);
-  font-weight: var(--mff-urlbar-results-font-weight);
-  font-size: var(--mff-urlbar-results-font-size) !important;
-  color: var(--mff-urlbar-results-color) !important;
-}
 
-.urlbarView-row[type="bookmark"] > span{
+/* .urlbarView-row[type="bookmark"] > span{
   color: green !important;
-}
+} */
 
+/* change text color for "switch to tab" results */
 .urlbarView-row[type="switchtab"] > span{
-  color: orange !important;
+  color: var(--mw-urlbar-results-switch-to-tab-row-text-color) !important;
 }
 
 .urlbarView-url, .search-panel-one-offs-container {
-  color: var(--mff-urlbar-results-url-color) !important;
-  font-family: var(--mff-urlbar-font-family);
-  font-weight: var(--mff-urlbar-results-font-weight);
-  font-size: var(--mff-urlbar-font-size) !important;
+  color: var(--mw-urlbar-results-url-color) !important;
+  font-family: var(--mw-urlbar-font-family);
+  font-weight: var(--mw-urlbar-results-font-weight);
+  font-size: var(--mw-urlbar-font-size) !important;
 }
 
+/* hide site favicons in urlbar results dropdown */
 .urlbarView-favicon, .urlbarView-type-icon {
   display: none !important;
 }
 
+/* add padding to left of urlbar results dropdown */
+.urlbarView-row {
+  padding-left: 6px !important;
+}
+
 #urlbar-input {
-  font-size: var(--mff-urlbar-font-size) !important;
-  color: var(--mff-urlbar-color) !important;
-  font-family: var(--mff-urlbar-font-family) !important;
-  font-weight: var(--mff-urlbar-font-weight)!important;
-  text-align: center !important;
+  font-size: var(--mw-urlbar-font-size) !important;
+  font-family: var(--mw-urlbar-font-family) !important;
+  font-weight: var(--mw-urlbar-font-weight) !important;
+  color: var(--mw-urlbar-text-color) !important;
+/*   text-align: center !important; */
 }
 
-#tracking-protection-icon-container, #identity-box {
-  display: none;
+#urlbar-results {
+  font-size: var(--mw-urlbar-results-font-size) !important;
+  font-family: var(--mw-urlbar-results-font-family);
+  font-weight: var(--mw-urlbar-results-font-weight);
+  color: var(--mw-urlbar-results-text-color) !important;
 }
 
-#back-button > .toolbarbutton-icon{
-  --backbutton-background: transparent !important;
-  border: none !important;
-}
-
-#back-button {
-  list-style-image: url("left-arrow.svg") !important;
-}
-
-#forward-button {
-  list-style-image: url("right-arrow.svg") !important;
-}
-
+/* toolbar background color */
 toolbar {
   background-image: none !important;
+  background-color: var(--mw-toolbar-bg) !important;
 }
-*/
 
+/* back and forward btns */
 #back-button {
   list-style-image: url("ic_back.svg") !important;
   margin-left: 5px !important;
@@ -332,29 +383,33 @@ toolbar {
   list-style-image: url("ic_forward_lg.svg") !important;
 }
 
+/* slightly transparent url bar and dropdown */
 #urlbar-background {
-  opacity: .98 !important;
-}
-#navigator-toolbox, toolbaritem {
-  border: none !important;
-}
-#urlbar-background {
-  background-color: var(--mff-bg) !important;
-  border: none !important;
-  /* slightly round the corners of the url bar */
-  border-radius: var(--mff-urlbar-border-radius) !important;
+  /* opacity of url input bar */
+  opacity: 0.98 !important;
 }
 
+#navigator-toolbox,
+toolbaritem {
+  border: none !important;
+}
+
+#urlbar-background {
+  background-color: var(--mw-urlbar-bg) !important;
+  border: none !important;
+  /* slightly round the corners of the url bar */
+  border-radius: var(--mw-urlbar-border-radius) !important;
+}
 
 /* disable url bar increasing in size on focus */
 #urlbar[breakout],
 #urlbar[breakout][breakout-extend] {
-  --urlbar-height: 28px !important;
-  --urlbar-toolbar-height: 30px !important;
+/*   --urlbar-height: 28px !important;
+  --urlbar-toolbar-height: 30px !important; */
 
   width: 100% !important;
-  /* top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important; */
-  top: 2px !important;
+  top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+/*   top: 2px !important; */
   left: 0 !important;
 }
 
@@ -368,10 +423,9 @@ toolbar {
 }
 
 #urlbar[breakout][breakout-extend] > #urlbar-background {
-  box-shadow: 0 1px 4px rgba(0,0,0,.05) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
   animation: none !important;
 }
-
 
 /*
 
@@ -419,30 +473,22 @@ toolbar#nav-bar {
 } */
 
 #urlbar-input:focus {
-  color: var(--mff-urlbar-focused-color) !important;
+  color: var(--mw-urlbar-focused-text-color) !important;
 }
-
 
 .megabar[breakout-extend="true"]:not([open="true"]) > #urlbar-background {
   box-shadow: #0008 !important;
-  background-color: var(--mff-bg) !important;
+  background-color: var(--mw-urlbar-bg) !important;
   padding: 0 !important;
 }
 
 toolbarbutton {
   box-shadow: none !important;
-}  
+}
 
-
-/*
-  ___ ___ ___  ___ ___   _   ___
- / __|_ _|   \| __| _ ) /_\ | _ \
- \__ \| || |) | _|| _ \/ _ \|   /
- |___/___|___/|___|___/_/ \_\_|_\
-*/
-
-.close-icon, .urlbar-icon {
-  fill: var(--mff-icon-color) !important;
+.close-icon,
+.urlbar-icon {
+  fill: var(--mw-urlbar-icon-color) !important;
 }
 
 .sidebar-placesTree {
@@ -450,7 +496,7 @@ toolbarbutton {
 }
 
 #sidebar-switcher-target {
-/*   color: white !important; */
+/*     color: white !important; */
 }
 
 #sidebar-box {
@@ -468,8 +514,7 @@ splitter#sidebar-splitter {
 
 image#sidebar-icon {
   display: none;
-}
-
+} 
 
 /*
     _   ___ ___  _____      _____  _   _  _ ___ _
