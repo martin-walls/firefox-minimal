@@ -2,10 +2,10 @@
 
 :root {
   /* background color of url bar */
-  --mw-urlbar-bg: #363636;
+  --mw-urlbar-bg: #2a2a2a;
   
   /* background of toolbar behind url bar */
-  --mw-toolbar-bg: #535353;
+  --mw-toolbar-bg: #404040;
   
   /* fill color of icons right of url bar */
   --mw-toolbar-right-icon-fill: #d0d0d0;
@@ -14,7 +14,7 @@
   --mw-urlbar-icon-color: #d0d0d0;
   
   /* background colour behind tabs and of unselected tabs */
-  --mw-tabbar-bg: #363636;
+  --mw-tabbar-bg: #242424;
 
   /* colour of selected tab: same as toolbar */
   --mw-tab-selected-bg: var(--mw-toolbar-bg);
@@ -37,18 +37,18 @@
   --mw-urlbar-border-radius: 2px;
   
   /* urlbar text style */
-  --mw-urlbar-text-color: #98c1c1;
-  --mw-urlbar-focused-text-color: #e0fbfc;
+  --mw-urlbar-text-color: #c1c1c1;
+  --mw-urlbar-focused-text-color: #eaeaea;
   --mw-urlbar-font-family: "ubuntu mono", monospace;
   --mw-urlbar-font-size: 14px;
   --mw-urlbar-font-weight: 500;
   
-  --mw-urlbar-results-text-color: #e0fbfc;
+  --mw-urlbar-results-text-color: #c5c5c5;
   --mw-urlbar-results-font-family: "ubuntu mono", monospace;
   --mw-urlbar-results-font-size: 14px;
   --mw-urlbar-results-font-weight: 500;
   
-  --mw-urlbar-results-url-color: #98c1d9;
+  --mw-urlbar-results-url-color: #808080;
   --mw-urlbar-results-switch-to-tab-row-text-color: orange;
 
   /* Minimal Functional Fox variables*/
@@ -161,6 +161,25 @@
   display: none !important;
 }
 
+/* show tab close btn on hover */
+/* .tabbrowser-tab .tab-close-button {
+  -moz-box-ordinal-group: 0 !important;
+  margin: 2px 6px 0 0 !important;
+}
+
+.tabbrowser-tab:not([pinned="true"]):hover .tab-throbber {
+  display: none;
+}
+
+.tabbrowser-tab:not([pinned="true"]):hover .tab-close-button {
+  display: -moz-box !important;
+}
+
+.tabbrowser-tab:not([pinned="true"]):hover .tab-text {
+  padding-right: 25px !important;
+} */
+
+
 /* tab title text style */
 .tab-text {
   font-family: var(--mw-tab-title-font-family);
@@ -227,18 +246,16 @@ hbox.tab-content[pinned="true"] .tab-text {
   background-color: var(--mw-tab-soundplaying-bg) !important;
 }
 
-/* .tabbrowser-tab[soundplaying="true"] .tab-background {
-  background: var(--mff-tab-soundplaying-bg) !important;
-} */
-
-/* .tabbrowser-tab[soundplaying="true"] .tab-background[selected="true"] {
-  background: var(--mff-tab-soundplaying-bg-selected) !important;
-} */
+/* let tabs expand to fill full width of tab bar */
+.tabbrowser-tab[fadein]:not([pinned]) {
+  max-width: 80% !important;
+}
 
 /* new tab button */
 #tabs-newtab-button {
   list-style-image: url("ic_dot.svg") !important;
   opacity: 0.7;
+  -moz-box-ordinal-group: 0 !important;
 }
 
 #tabs-newtab-button:hover {
@@ -271,6 +288,15 @@ hbox.tab-content[pinned="true"] .tab-text {
   box-shadow: none !important;
 }
 
+#tracking-protection-icon-container,
+#permissions-granted-icon,
+#identity-box > *:not(#identity-icon),
+/* #pageActionButton, */
+.urlbar-icon:not(#pocket-button) 
+{
+  display: none !important;
+}
+
 /* back and forward buttons */
 #back-button > .toolbarbutton-icon, #forward-button > .toolbarbutton-icon,
 /* icons at left of url bar */
@@ -285,9 +311,9 @@ hbox.tab-content[pinned="true"] .tab-text {
   border-radius: var(--toolbarbutton-border-radius) !important;
 }
 
-/* increase space between last url bar icon (bookmark star) and right edge */
+/* increase space between last url bar icon and right edge */
 #urlbar {
-  padding-right: 2px !important;
+/*   padding-right: 2px !important; */
 }
 
 /*
@@ -341,7 +367,7 @@ filter: drop-shadow(0 0 0.75rem crimson);
 
 /* add padding to left of urlbar results dropdown */
 .urlbarView-row {
-  padding-left: 6px !important;
+  padding-left: 4px !important;
 }
 
 #urlbar-input {
@@ -350,6 +376,7 @@ filter: drop-shadow(0 0 0.75rem crimson);
   font-weight: var(--mw-urlbar-font-weight) !important;
   color: var(--mw-urlbar-text-color) !important;
 /*   text-align: center !important; */
+  padding-left: 12px !important;
 }
 
 #urlbar-results {
@@ -386,7 +413,7 @@ toolbar {
 /* slightly transparent url bar and dropdown */
 #urlbar-background {
   /* opacity of url input bar */
-  opacity: 0.98 !important;
+  opacity: 0.99 !important;
 }
 
 #navigator-toolbox,
@@ -395,7 +422,8 @@ toolbaritem {
 }
 
 #urlbar-background {
-  background-color: var(--mw-urlbar-bg) !important;
+  box-shadow: none !important;
+  background-color: var(--mw-toolbar-bg) !important;
   border: none !important;
   /* slightly round the corners of the url bar */
   border-radius: var(--mw-urlbar-border-radius) !important;
@@ -404,13 +432,19 @@ toolbaritem {
 /* disable url bar increasing in size on focus */
 #urlbar[breakout],
 #urlbar[breakout][breakout-extend] {
-/*   --urlbar-height: 28px !important;
-  --urlbar-toolbar-height: 30px !important; */
+/*   --urlbar-height: 28px !important; */
+/*   --urlbar-toolbar-height: var(--urlbar-toolbar-height) !important; */
 
   width: 100% !important;
   top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
 /*   top: 2px !important; */
   left: 0 !important;
+  
+/*   background: #f00 !important; */
+}
+
+#urlbar[breakout]:not([open]) {
+  bottom: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
 }
 
 #urlbar[breakout][breakout-extend] > #urlbar-input-container,
@@ -424,7 +458,8 @@ toolbaritem {
 
 #urlbar[breakout][breakout-extend] > #urlbar-background {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05) !important;
-  animation: none !important;
+/*   animation: none !important; */
+  background: var(--mw-urlbar-bg) !important;
 }
 
 /*
