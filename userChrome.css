@@ -2,10 +2,10 @@
 
 :root {
   /* background color of url bar */
-  --mw-urlbar-bg: #2a2a2a;
+  --mw-urlbar-bg: #222d32;
   
   /* background of toolbar behind url bar */
-  --mw-toolbar-bg: #404040;
+  --mw-toolbar-bg: #263238;
   
   /* fill color of icons right of url bar */
   --mw-toolbar-right-icon-fill: #d0d0d0;
@@ -14,7 +14,7 @@
   --mw-urlbar-icon-color: #d0d0d0;
   
   /* background colour behind tabs and of unselected tabs */
-  --mw-tabbar-bg: #242424;
+  --mw-tabbar-bg: #1c2125;
 
   /* colour of selected tab: same as toolbar */
   --mw-tab-selected-bg: var(--mw-toolbar-bg);
@@ -37,19 +37,21 @@
   --mw-urlbar-border-radius: 2px;
   
   /* urlbar text style */
-  --mw-urlbar-text-color: #c1c1c1;
+  --mw-urlbar-text-color: #eaeaea;
   --mw-urlbar-focused-text-color: #eaeaea;
   --mw-urlbar-font-family: "ubuntu mono", monospace;
   --mw-urlbar-font-size: 14px;
   --mw-urlbar-font-weight: 500;
   
-  --mw-urlbar-results-text-color: #c5c5c5;
+  --mw-urlbar-results-text-color: #d5d5d5;
   --mw-urlbar-results-font-family: "ubuntu mono", monospace;
   --mw-urlbar-results-font-size: 14px;
   --mw-urlbar-results-font-weight: 500;
   
   --mw-urlbar-results-url-color: #808080;
   --mw-urlbar-results-switch-to-tab-row-text-color: orange;
+  
+  --mw-urlbar-results-padding-left: 27px;
 
   /* Minimal Functional Fox variables*/
 /*   --mff-bg: var(--mw-bg);
@@ -370,7 +372,7 @@ filter: drop-shadow(0 0 0.75rem crimson);
 
 /* add padding to left of urlbar results dropdown */
 .urlbarView-row {
-  padding-left: 4px !important;
+  padding-left: var(--mw-urlbar-results-padding-left) !important;
 }
 
 #urlbar-input {
