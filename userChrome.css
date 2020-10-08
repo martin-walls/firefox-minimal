@@ -20,7 +20,7 @@
   --mw-tab-selected-bg: var(--mw-toolbar-bg);
   
   /* colour of background tab playing sound */
-  --mw-tab-soundplaying-bg: #404040;
+  --mw-tab-soundplaying-bg: #222d32;
   
   /* tab border radius */
   --mw-tab-border-radius-top: 4px;
@@ -116,6 +116,11 @@
   background: var(--mw-tab-selected-bg) !important;
 }
 
+/* tab background on hover */
+.tabbrowser-tab:not([selected]):hover .tab-background {
+  opacity: 0.4 !important;
+}
+
 /* .tab-background:not[visuallyselected] {
   background: var(--mff-tab-selected-bg) !important;
   opacity: 0.5 !important;
@@ -166,19 +171,18 @@
 /* show tab close btn on hover */
 /* .tabbrowser-tab .tab-close-button {
   -moz-box-ordinal-group: 0 !important;
-  margin: 2px 6px 0 0 !important;
 }
 
-.tabbrowser-tab:not([pinned="true"]):hover .tab-throbber {
+.tabbrowser-tab[selected="true"]:not([pinned="true"]):hover .tab-throbber {
   display: none;
 }
 
-.tabbrowser-tab:not([pinned="true"]):hover .tab-close-button {
+.tabbrowser-tab[selected="true"]:not([pinned="true"]):hover .tab-close-button {
   display: -moz-box !important;
 }
 
-.tabbrowser-tab:not([pinned="true"]):hover .tab-text {
-  padding-right: 25px !important;
+.tabbrowser-tab[selected="true"]:not([pinned="true"]):hover .tab-text {
+  display: none !important;
 } */
 
 
